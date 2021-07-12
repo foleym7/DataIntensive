@@ -16,15 +16,22 @@
 
 # libraries required 
 
-import kaggle
+
+import zipfile
 from kaggle.api.kaggle_api_extended import KaggleApi
-
-
+from zipfile import ZipFile
+#source
 class sourcedata():
 
-    def __init__(self) -> None:
-        self.api = KaggleApi()
-        self.api.authenticate()
+    def __init__(self):
+        print("class")
 
-    def getdata(self, source):
-        data = self.api.dataset_download_file(source)
+    def getdata(self,source):
+        self.api = KaggleApi()
+        self.api.authenticate() 
+        print(source)
+        self.api.dataset_download_files(source,path='./data', unzip=True)
+
+    
+
+
