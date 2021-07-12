@@ -31,19 +31,18 @@ def main():
     set_path()
     parser = configparser.ConfigParser()
     parser.read("config.ini")
-    print(parser.items())
+    source = parser['kaggle']['url']
+    data = sourcedata()
+    data.getdata(source)    
    
 
 
 def set_path():
-    path = "/Users/marcofoley/Google Drive/Personal/Data Science/4. CodingProjects/DataIntensive"
+    #path = "/Users/marcofoley/Google Drive/Personal/Data Science/4. CodingProjects/DataIntensive"
     # Now change the directory
-    os.chdir(path)
+    #os.chdir(path)
     retval = os.getcwd()
     print("Current working directory %s" % retval)
-
-    
-
 
 
 
